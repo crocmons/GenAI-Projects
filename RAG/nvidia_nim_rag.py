@@ -21,28 +21,8 @@ os.environ['NVIDIA_API_KEY'] = os.getenv('NVIDIA_API_KEY')
 llm = ChatNVIDIA(model="nvidia/neva-22b")
 
 
-# def vector_embedding():
-#     if "vectors" not in st.session_state:
-#         st.session_state.embeddings = NVIDIAEmbeddings(model="nvidia/nv-embed-v1")
-#         # Issue resolved - Use PyPDFDirectoryLoader only when you have a data pdf directory folder with many pdf files otherwise use PyPDFLoader to load only 1 pdf file
-#         st.session_state.loader =  PyPDFLoader("data/demo-food.pdf")
-#         st.session_state.docs = st.session_state.loader.load()
-#         if not st.session_state.docs:
-#             st.error("No pages loaded from 'data/demo-food.pdf'. Check the path/file.")
-#             return
-#         # Debug info
-#         st.info(f"Loaded {len(st.session_state.docs)} pages")
-#         st.write("First page preview:")
-#         st.write(st.session_state.docs[0].page_content[:500] + "...")
-#         st.session_state.text_splitter = RecursiveCharacterTextSplitter(
-#             chunk_size=500,  # Larger chunks for better context
-#             chunk_overlap=50, # More overlap to maintain context
-#             separators=["\n\n", "\n", ". ", " ",  ""])  # Better separators
-#         st.session_state.final_documents = st.session_state.text_splitter.split_documents(st.session_state.docs)
-#         if not st.session_state.final_documents:
-#             st.error("No text chunks produced from the document.")
-#             return
-#         st.session_state.vectors = FAISS.from_documents(st.session_state.final_documents, st.session_state.embeddings)
+
+
 def _save_uploaded_pdf(uploaded_file) -> str:
 	"""Save uploaded PDF to a temp directory and return the file path."""
 	upload_dir = Path(".tmp_uploads")
@@ -231,7 +211,7 @@ prompt = ChatPromptTemplate.from_template(
 prompt1 = st.text_input("Enter Your questions from documents ")
 
 if st.button("Document Embedding"):
-	# main function
+	# main function 
 	vector_embedding(selected_pdf_path)
 	# testing done hopefully it works into the main function.
 	# vector_embedding()
