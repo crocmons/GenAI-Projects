@@ -6,4 +6,8 @@ streamlit
 pypdf
 pymupdf
 unstructured[local-inference]
+unstructured
 langchain-community
+sentence-transformers
+langchain-huggingface
+transformers
