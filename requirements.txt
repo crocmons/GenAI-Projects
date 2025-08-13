@@ -1,0 +1,9 @@
+openai
+python-dotenv
+langchain_nvidia_ai_endpoints
+faiss-cpu
+streamlit
+pypdf
+pymupdf
+unstructured[local-inference]
+langchain-community
